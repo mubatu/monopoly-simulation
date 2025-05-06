@@ -1,49 +1,95 @@
+/* ─── Fonts ─────────────────────────────────────────────────────────────── */
 @font-face {
-    font-family: 'Monopoly Sans';
-    src: url('./fonts/MONOPOLY_INLINE.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: "Monopoly Sans";
+    src: url("./fonts/MONOPOLY_INLINE.ttf") format("truetype");
+}
+
+/* ─── Variables ─────────────────────────────────────────────────────────── */
+:root {
+    --space-size: 50px;
+    --board-gap: 2px;
+    --token-size: 20px;
+    --token-color: crimson;
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────── */
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: Monopoly Sans, sans-serif;
-    text-align: center;
+    font: 16px "Monopoly Sans", sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  #controls {
-    margin: 40px;
-  }
-  
-  #board {
+    text-align: center;
+}
+
+h1 {
+    margin: 0.2rem 0;
+    /* Reduce the top and bottom margin */
+}
+
+/* ─── Board grid ────────────────────────────────────────────────────────── */
+#board {
+    --grid: 11;
     display: grid;
-    grid-template-columns: repeat(10, 50px);
-    grid-template-rows: repeat(4, 50px);
-    gap: 2px;
-    justify-content: center;
-    margin: 20px auto;
+    grid-template-columns: repeat(var(--grid), var(--space-size));
+    grid-template-rows: repeat(var(--grid), var(--space-size));
+    gap: var(--board-gap);
+    margin: 2rem auto;
     position: relative;
-  }
-  
-  .space {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #aaa;
-    background-color: #f4f4f4;
+}
+
+.space {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-  }
-  
-  #token {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
+    width: var(--space-size);
+    height: var(--space-size);
+    border: 1px solid #aaa;
+    background: #f4f4f4;
+}
+
+.empty {
+    border: none;
+    background: transparent;
+}
+
+/* ─── Token ─────────────────────────────────────────────────────────────── */
+#token {
     position: absolute;
-    transition: all 0.3s ease;
-    z-index: 2;
-  }
-  
+    width: var(--token-size);
+    height: var(--token-size);
+    background: var(--token-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* center on space */
+    transition: transform 0.25s ease;
+    pointer-events: none;
+}
+
+/* ─── Controls ─────────────────────────────────────────────────────────── */
+#controls {
+    margin: 2rem 0;
+    display: inline-block;
+}
+
+#controls button {
+    margin: 0 0.25rem;
+    padding: 0.5rem 1rem;
+}
+
+#speedRange {
+    vertical-align: middle;
+}
+
+#dice {
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* ─── Stats (empty for now) ─────────────────────────────────────────────── */
+#stats {
+    margin: 2rem auto;
+    max-width: 600px;
+}

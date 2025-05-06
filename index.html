@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monopoly Simulation</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monopoly Simulation</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>MONOPOLY Simulation</h1>
+    <h1>M O N O P O L Y</h1>
+    <h1>Simulation</h1>
 
-  <div id="board">
-    <!-- Spaces will be dynamically created by JS -->
-  </div>
+    <!-- ─── Board ─────────────────────────────────────────────────────────── -->
+    <div id="board"></div>
+    <div id="token" aria-label="player‑token"></div>
 
-  <div id="token"></div>
+    <!-- ─── Controls ──────────────────────────────────────────────────────── -->
+    <div id="controls">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <button id="restartBtn">Restart</button>
 
-  <div id="controls">
-    <button id="startBtn">Start</button>
-    <button id="stopBtn">Stop</button>
-    <button id="restartBtn">Restart</button>
-    <label for="speedRange">Speed:</label>
-    <input type="range" id="speedRange" min="100" max="2000" value="500" />
-  </div>
+        <label for="speedRange">Speed&nbsp;<small>(ms / turn)</small></label>
+        <input type="range" id="speedRange" min="100" max="2000" value="500" step="50" />
+        <span id="speedDisplay">500 ms</span>
 
-  
+        <button id="showVisitsBtn">Show Visits</button>
 
-  <script src="script.js"></script>
+        <div id="dice">
+            <span id="die1">0</span>
+            <span id="plus">+</span>
+            <span id="die2">0</span>
+            <span id="equals">=</span>
+            <span id="total">0</span>
+        </div>
+    </div>
+
+    <!-- ─── Stats placeholder (for future charts) ─────────────────────────── -->
+    <section id="stats"></section>
+
+    <script type="module" src="script.js"></script>
 </body>
+
 </html>
