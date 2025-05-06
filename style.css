@@ -88,8 +88,13 @@ h1 {
     font-size: 1.25rem;
 }
 
-/* ─── Stats (empty for now) ─────────────────────────────────────────────── */
+/* ─── Stats ────────────────────────────────────────────────────────────── */
 #stats {
     margin: 2rem auto;
-    max-width: 600px;
-}
+    max-width: 640px;          /* slightly wider for the bar chart */
+  }
+  
+  #stats canvas {
+    width: 100% !important;    /* make Chart.js responsive */
+    height: 320px !important;  /* fixed height looks nicer for bars */
+  }
